@@ -1,0 +1,21 @@
+*{
+    color: #CECECE;
+    background-color: rgb(43, 43, 43);
+    font-family: 'Roboto', sans-serif;
+}
+
+.tab-button {
+    width: 50px;        /* Setzen Sie die Breite des Knopfes */
+    height: 50px;       /* Setzen Sie die Höhe des Knopfes */
+    border: none;       /* Entfernen Sie den Rahmen */
+    border-bottom: 10px solid rgb(31, 31, 31);  /* Fügen Sie einen Rahmen unten hinzu */
+    background-color: rgb(43, 43, 43);  /* Setzen Sie die Hintergrundfarbe */
+    font-size: xx-large;
+}
+
+/* Definieren Sie den Stil für den aktiven Knopf */
+.tab-button-active {
+    border: none;
+    border-bottom: 10px solid rgb(0, 197, 33);  /* Ändern Sie die Farbe des Rahmens, wenn der Knopf aktiv ist */
+    font-size: xx-large;
+}

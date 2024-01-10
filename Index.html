@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="Script.js"></script>
+        <link rel="stylesheet" type="text/css" href="Style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <div style="width: 100%; height: 100px; margin: 0px; border: 0px; padding: 0px;">
+            <button style="width: 25%; height: 100%; float: left;" class="tab-button-active" onclick="openTab('str', this)">Startpage</button>
+            <button style="width: 25%; height: 100%; float: left;" class="tab-button" onclick="openTab('gen', this)">Generate</button>
+            <button style="width: 25%; height: 100%; float: left;" class="tab-button" onclick="openTab('enc', this)">Encrypt</button>
+            <button style="width: 25%; height: 100%; float: left;" class="tab-button" onclick="openTab('dec', this)">Decrypt</button>
+        </div>
+
+        <div id="str" class="tab" style="display:block;">
+            <h2>Startpage</h2>
+            <p>Tanks for using my Website to generate your passwords.</p>
+            <p>Important: This Website does not save your password. It just Generates/Decrypts or Encrypts them. This is happening with a seed which is your key you can not Decrypt them without it. So do not share this seed or your password</p>
+            <p>all rights reserved to Datengeist(Janik Forderer)</p>
+        </div>
+
+        <div id="gen" class="tab" style="display:none;">
+            <h2>Generate Passwort</h2>
+            <p>Hier ist der Inhalt für Register 1.</p>
+        </div>
+
+        <div id="enc" class="tab" style="display:none;">
+            <h2>Register 2</h2>
+            <p>Hier ist der Inhalt für Register 2.</p>
+        </div>
+
+        <div id="dec" class="tab" style="display:none;">
+            <h2>Register 3</h2>
+            <p>Hier ist der Inhalt für Register 3.</p>
+        </div>
+
+        <script>
+            
+        </script>
+
+    </body>
+</html>
