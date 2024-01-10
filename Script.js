@@ -30,25 +30,25 @@ function decrypt(password, seed) {
 }
 
 function generatePassword(laenge) {
-    var grossbuchstaben = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var kleinbuchstaben = 'abcdefghijklmnopqrstuvwxyz';
-    var zahlen = '0123456789';
-    var sonderzeichen = '!@#$%^&*()';
-    var alleZeichen = grossbuchstaben + kleinbuchstaben + zahlen + sonderzeichen;
+    var capitalLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var lowerCases = 'abcdefghijklmnopqrstuvwxyz';
+    var numbers = '0123456789';
+    var specialLetters = '!@#$%^&*()';
+    var allLetters = capitalLetters + lowerCases + numbers + specialLetters;
 
-    var passwort = '';
-    passwort += grossbuchstaben.charAt(Math.floor(Math.random() * grossbuchstaben.length));
-    passwort += kleinbuchstaben.charAt(Math.floor(Math.random() * kleinbuchstaben.length));
-    passwort += zahlen.charAt(Math.floor(Math.random() * zahlen.length));
-    passwort += sonderzeichen.charAt(Math.floor(Math.random() * sonderzeichen.length));
+    var password = '';
+    password += capitalLetters.charAt(Math.floor(Math.random() * capitalLetters.length));
+    password += lowerCases.charAt(Math.floor(Math.random() * lowerCases.length));
+    password += numbers.charAt(Math.floor(Math.random() * numbers.length));
+    password += specialLetters.charAt(Math.floor(Math.random() * specialLetters.length));
 
     for (var i = 4; i < laenge; i++) {
-        passwort += alleZeichen.charAt(Math.floor(Math.random() * alleZeichen.length));
+        password += allLetters.charAt(Math.floor(Math.random() * allLetters.length));
     }
 
-    passwort = passwort.split('').sort(function() { return 0.5 - Math.random() }).join('');
+    password = password.split('').sort(function() { return 0.5 - Math.random() }).join('');
 
-    return passwort;
+    return password;
 }
 
 function generateSeed(){
