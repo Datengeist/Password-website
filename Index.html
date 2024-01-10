@@ -32,13 +32,17 @@
         </div>
 
         <div id="enc" class="tab" style="display:none;">
-            <h2>Register 2</h2>
-            <p>Hier ist der Inhalt für Register 2.</p>
+            <input id="encryptPassword" style="margin-top: 2%;" type="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+            <input id="encryptSeed" style="margin-top: 2%;" type="password" placeholder="Seed (optional)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seed (optional)'">
+            <button onclick="encryptButton()">Encrypt</button>
+            <p id="encryptEncrypted">Encypted: </p>
         </div>
 
         <div id="dec" class="tab" style="display:none;">
-            <h2>Register 3</h2>
-            <p>Hier ist der Inhalt für Register 3.</p>
+            <input id="decryptPassword" style="margin-top: 2%;" type="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+            <input id="decryptSeed" style="margin-top: 2%;" type="password" placeholder="Seed" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seed'">
+            <button onclick="decryptButton()">Decrypt</button>
+            <p id="decryptEncrypted">Decypted: </p>
         </div>
 
         <script>

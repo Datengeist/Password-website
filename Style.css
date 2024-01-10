@@ -4,18 +4,35 @@
     font-family: 'Roboto', sans-serif;
 }
 
+input{
+    width: 50%;
+    height: 50px; 
+    border: none;
+    font-size: x-large;
+    border-bottom: 10px solid rgb(31, 31, 31);
+}
+
+h2{
+    font-size: xx-large;
+}
+
+input:focus{
+    border: none;
+    border-bottom: 10px solid rgb(0, 197, 33);
+}
+
 .tab-button {
     width: 50px;        /* Setzen Sie die Breite des Knopfes */
     height: 50px;       /* Setzen Sie die Höhe des Knopfes */
     border: none;       /* Entfernen Sie den Rahmen */
     border-bottom: 10px solid rgb(31, 31, 31);  /* Fügen Sie einen Rahmen unten hinzu */
     background-color: rgb(43, 43, 43);  /* Setzen Sie die Hintergrundfarbe */
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 /* Definieren Sie den Stil für den aktiven Knopf */
 .tab-button-active {
     border: none;
     border-bottom: 10px solid rgb(0, 197, 33);  /* Ändern Sie die Farbe des Rahmens, wenn der Knopf aktiv ist */
-    font-size: xx-large;
+    font-size: x-large;
 }

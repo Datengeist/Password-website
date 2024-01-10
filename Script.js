@@ -58,8 +58,32 @@ function generateSeed(){
 function generateButton(){
     var password = generatePassword((Math.random()*10) + 10);
     var seed = generateSeed();
-    document.getElementById('generatePassword').innerHTML = 'Password: ' + password;
-    document.getElementById('generateSeed').innerHTML = 'Seed: ' + seed;
-    document.getElementById('generateEncrypted').innerHTML = 'Encrypted: ' + encrypt(password, seed);
+    document.getElementById('generatePassword').innerText = 'Password: ' + password;
+    document.getElementById('generateSeed').innerText = 'Seed: ' + seed;
+    document.getElementById('generateEncrypted').innerText = 'Encrypted: ' + encrypt(password, seed);
+    console.log('Passwort: ' + password + '\tSeed: ' + seed + '\tEncrypted: ' + encrypt(password, seed) + '\nDecrypted: ' + decrypt(encrypt(password, seed), seed))
 }
 
+function encryptButton(){
+    var password = document.getElementById('encryptPassword').value;
+    if(document.getElementById('encryptSeed').value == ''){
+        var seed = generateSeed();
+    }else{
+        var seed = parseInt(document.getElementById('encryptSeed').value);
+    }
+    document.getElementById('encryptEncrypted').innerText = 'Encrypted: ' + encrypt(password, seed);
+    console.log('Passwort: ' + password + '\tSeed: ' + seed + '\tEncrypted: ' + encrypt(password, seed) + '\nDecrypted: ' + decrypt(encrypt(password, seed), seed))
+
+}
+
+function decryptButton(){
+    var password = document.getElementById('decryptPassword').value;
+    if(document.getElementById('decryptSeed').value == ''){
+        var seed = generateSeed();
+    }else{
+        var seed = parseInt(document.getElementById('decryptSeed').value);
+    }
+    document.getElementById('decryptEncrypted').innerText = 'Decrypted: ' + decrypt(password, seed);
+    console.log('Passwort: ' + password + '\tSeed: ' + seed + '\tDecrypted: ' + decrypt(password, seed) + '\nEncrypted: ' + encrypt(decrypt(password, seed), seed))
+
+}
