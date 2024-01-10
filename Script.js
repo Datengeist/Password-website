@@ -68,6 +68,7 @@ function encryptButton(){
     var password = document.getElementById('encryptPassword').value;
     if(document.getElementById('encryptSeed').value == ''){
         var seed = generateSeed();
+        document.getElementById('encryptSeed').value = seed;
     }else{
         var seed = parseInt(document.getElementById('encryptSeed').value);
     }

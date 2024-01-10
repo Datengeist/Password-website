@@ -32,15 +32,15 @@
         </div>
 
         <div id="enc" class="tab" style="display:none;">
-            <input id="encryptPassword" style="margin-top: 2%;" type="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-            <input id="encryptSeed" style="margin-top: 2%;" type="password" placeholder="Seed (optional)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seed (optional)'">
+            <input id="encryptPassword" style="margin-top: 2%;" onfocus="this.type='text';" onblur="this.type='password';" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+            <input id="encryptSeed" style="margin-top: 2%;" onfocus="this.type='text';" onblur="this.type='password';" placeholder="Seed (optional)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seed (optional)'">
             <button onclick="encryptButton()">Encrypt</button>
             <p id="encryptEncrypted">Encypted: </p>
         </div>
 
         <div id="dec" class="tab" style="display:none;">
-            <input id="decryptPassword" style="margin-top: 2%;" type="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-            <input id="decryptSeed" style="margin-top: 2%;" type="password" placeholder="Seed" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seed'">
+            <input id="decryptPassword" style="margin-top: 2%;" onfocus="this.type='text';" onblur="this.type='password';" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+            <input id="decryptSeed" style="margin-top: 2%;" onfocus="this.type='text';" onblur="this.type='password';" placeholder="Seed" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seed'">
             <button onclick="decryptButton()">Decrypt</button>
             <p id="decryptEncrypted">Decypted: </p>
         </div>
