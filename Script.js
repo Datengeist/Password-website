@@ -1,5 +1,3 @@
-let x
-
 function openTab(tabId, element) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tab");
@@ -14,17 +12,54 @@ function openTab(tabId, element) {
     element.className += "-active";
 }
 
-function getRandom(seed){
-    if(x==null){
-        GenerateInts(seed);
+function encrypt(password, seed) {
+    var result = '';
+    for (var i = 0; i < password.length; i++) {
+        var ascii = password.charCodeAt(i);
+        if (ascii >= 32 && ascii <= 126) {
+            result += String.fromCharCode((ascii - 32 + seed) % 95 + 32);
+        } else {
+            result += password.charAt(i);
+        }
     }
-    x *= 10;
-    let y = Math.floor(x);
-    x -= Math.floor(x); 
-    return y-5;
+    return result;
 }
 
-function GenerateInts(seed) {
-    x = Math.sin(seed++) * 10000;
-    x = x - Math.floor(x);
+function decrypt(password, seed) {
+    return encrypt(password, 95 - (seed % 95));
 }
+
+function generatePassword(laenge) {
+    var grossbuchstaben = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var kleinbuchstaben = 'abcdefghijklmnopqrstuvwxyz';
+    var zahlen = '0123456789';
+    var sonderzeichen = '!@#$%^&*()';
+    var alleZeichen = grossbuchstaben + kleinbuchstaben + zahlen + sonderzeichen;
+
+    var passwort = '';
+    passwort += grossbuchstaben.charAt(Math.floor(Math.random() * grossbuchstaben.length));
+    passwort += kleinbuchstaben.charAt(Math.floor(Math.random() * kleinbuchstaben.length));
+    passwort += zahlen.charAt(Math.floor(Math.random() * zahlen.length));
+    passwort += sonderzeichen.charAt(Math.floor(Math.random() * sonderzeichen.length));
+
+    for (var i = 4; i < laenge; i++) {
+        passwort += alleZeichen.charAt(Math.floor(Math.random() * alleZeichen.length));
+    }
+
+    passwort = passwort.split('').sort(function() { return 0.5 - Math.random() }).join('');
+
+    return passwort;
+}
+
+function generateSeed(){
+    return seed = Math.floor(Math.random() * 10000);
+}
+
+function generateButton(){
+    var password = generatePassword((Math.random()*10) + 10);
+    var seed = generateSeed();
+    document.getElementById('generatePassword').innerHTML = 'Password: ' + password;
+    document.getElementById('generateSeed').innerHTML = 'Seed: ' + seed;
+    document.getElementById('generateEncrypted').innerHTML = 'Encrypted: ' + encrypt(password, seed);
+}
+
