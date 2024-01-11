@@ -1,3 +1,14 @@
+function generateRandomNumbers(seed, laenge) {
+    var randomNumbers = [];
+    var x = seed;
+    for (var i = 0; i < laenge; i++) {
+        x = (x * 16807) % 2147483647;  // Dies ist ein einfacher linearer Kongruenzgenerator
+        randomNumbers.push(x % 95);  // Modulo 95, um eine Zahl zwischen 0 und 94 zu erhalten
+    }
+    return randomNumbers;
+}
+
+
 function openTab(tabId, element) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tab");
@@ -13,27 +24,38 @@ function openTab(tabId, element) {
 }
 
 function encrypt(password, seed) {
+    var randomNumbers = generateRandomNumbers(seed, password.length);
     var result = '';
     for (var i = 0; i < password.length; i++) {
-        var ascii = password.charCodeAt(i);
+        var ascii = password[i].charCodeAt();
         if (ascii >= 32 && ascii <= 126) {
-            result += String.fromCharCode((ascii - 32 + seed) % 95 + 32);
+            result += String.fromCharCode((ascii - 32 + randomNumbers[i]) % 95 + 32);
         } else {
-            result += password.charAt(i);
+            result += password[i].charAt();
         }
     }
     return result;
 }
 
 function decrypt(password, seed) {
-    return encrypt(password, 95 - (seed % 95));
+    var randomNumbers = generateRandomNumbers(seed, password.length);
+    var result = '';
+    for (var i = 0; i < password.length; i++) {
+        var ascii = password[i].charCodeAt();
+        if (ascii >= 32 && ascii <= 126) {
+            result += String.fromCharCode((ascii - 32 + 95 - randomNumbers[i]) % 95 + 32);
+        } else {
+            result += password[i].charAt();
+        }
+    }
+    return result;
 }
 
 function generatePassword(laenge) {
     var capitalLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var lowerCases = 'abcdefghijklmnopqrstuvwxyz';
     var numbers = '0123456789';
-    var specialLetters = '!@#$%^&*()';
+    var specialLetters = '!@#$%^&*()-_/';
     var allLetters = capitalLetters + lowerCases + numbers + specialLetters;
 
     var password = '';
