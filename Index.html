@@ -32,37 +32,37 @@
             <h2>Generate Passwort</h2>
             <button onclick="generateButton()">Generate</button>
             <div style="display: flex;">
-                <input readonly value="Password: " style="margin-right: 0px; width: 10%;">
-                <input id="generatePassword" onfocus="this.type='text';" onblur="this.type='password';" readonly style="width: 50%;"></input>
+                <input id="passwordLabel" value="Password: " style="margin-right: 0px; width: 10%;" disabled>
+                <input id="generatePassword" type="password" onfocus="this.type='text'; focusFunction('passwordLabel')" onblur="this.type='password'; blurFunction('passwordLabel')" readonly style="width: 50%;"></input>
             </div>
             <div style="display: flex;">
-                <input readonly value="Seed: " style="margin-right: 0px; width: 10%;">
-                <input id="generateSeed" onfocus="this.type='text';" onblur="this.type='password';" readonly style="width: 50%;"></input>
+                <input id="seedLabel" value="Seed: " style="margin-right: 0px; width: 10%;" disabled>
+                <input id="generateSeed" type="password" onfocus="this.type='number'; focusFunction('seedLabel')" onblur="this.type='password'; blurFunction('seedLabel')" readonly style="width: 50%;"></input>
             </div>
             <div style="display: flex;">
-                <input readonly value="Encrypted: " style="margin-right: 0px; width: 10%;">
-                <input id="generateEncrypted" onfocus="this.type='text';" onblur="this.type='password';" readonly style="width: 50%;"></input>
+                <input id="generationEncryptedLabel" readonly value="Encrypted: " style="margin-right: 0px; width: 10%;" disabled> 
+                <input id="generateEncrypted" type="password" onfocus="this.type='text'; focusFunction('generationEncryptedLabel')" onblur="this.type='password'; blurFunction('generationEncryptedLabel')" readonly style="width: 50%;"></input>
             </div>
             
         </div>
 
         <div id="enc" class="tab" style="display:none;">
             <input id="encryptPassword" onfocus="this.type='text';" onblur="this.type='password';" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-            <input id="encryptSeed" onfocus="this.type='text';" onblur="this.type='password';" placeholder="Seed (optional)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seed (optional)'">
+            <input id="encryptSeed" onfocus="this.type='number';" onblur="this.type='password';" placeholder="Seed (optional)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seed (optional)'">
             <button onclick="encryptButton()">Encrypt</button>
             <div style="display: flex;">
-                <input readonly value="Encrypted: " style="margin-right: 0px; width: 10%;">
-                <input id="encryptEncrypted" style="margin-right: 0px; width: 50%;" onfocus="this.type='text';" onblur="this.type='password';" readonly value=""></input>
+                <input id="encryptEncryptedLabel" value="Encrypted: " style="margin-right: 0px; width: 10%;" disabled>
+                <input id="encryptEncrypted" type="password" style="margin-right: 0px; width: 50%;" onfocus="this.type='text'; focusFunction('encryptEncryptedLabel')" onblur="this.type='password'; blurFunction('encryptEncryptedLabel')" readonly value=""></input>
             </div>
         </div>
 
         <div id="dec" class="tab" style="display:none;">
             <input id="decryptPassword" onfocus="this.type='text';" onblur="this.type='password';" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-            <input id="decryptSeed" onfocus="this.type='text';" onblur="this.type='password';" placeholder="Seed" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seed'">
+            <input id="decryptSeed" onfocus="this.type='number';" onblur="this.type='password';" placeholder="Seed" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seed'">
             <button onclick="decryptButton()">Decrypt</button>
             <div style="display: flex;">
-                <input readonly value="Decrypted: " style="margin-right: 0px; width: 10%;">
-                <input id="decryptDecrypted" style="margin-right: 0px; width: 50%;" onfocus="this.type='text';" onblur="this.type='password';" readonly value=""></input>
+                <input id="decryptDecryptedLabel" value="Decrypted: " style="margin-right: 0px; width: 10%;" disabled>
+                <input id="decryptDecrypted" type="password" style="margin-right: 0px; width: 50%;" onfocus="this.type='text'; focusFunction('decryptDecryptedLabel')" onblur="this.type='password'; blurFunction('decryptDecryptedLabel')" readonly value=""></input>
             </div>
         </div>
 

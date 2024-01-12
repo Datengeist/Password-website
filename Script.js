@@ -23,6 +23,14 @@ function openTab(tabId, element) {
     element.className += "-active";
 }
 
+function focusFunction(id) {
+    document.getElementById(id).classList.add('active');
+}
+
+function blurFunction(id) {
+    document.getElementById(id).classList.remove('active');
+}
+
 function encrypt(password, seed) {
     var randomNumbers = generateRandomNumbers(seed, password.length);
     var result = '';
@@ -83,7 +91,7 @@ function generateButton(){
     document.getElementById('generatePassword').value = password;
     document.getElementById('generateSeed').value = seed;
     document.getElementById('generateEncrypted').value = encrypt(password, seed);
-    console.log('Passwort: ' + password + '\tSeed: ' + seed + '\tEncrypted: ' + encrypt(password, seed) + '\nDecrypted: ' + decrypt(encrypt(password, seed), seed))
+    
 }
 
 function encryptButton(){
@@ -95,8 +103,7 @@ function encryptButton(){
         var seed = parseInt(document.getElementById('encryptSeed').value);
     }
     document.getElementById('encryptEncrypted').value = encrypt(password, seed);
-    console.log('Passwort: ' + password + '\tSeed: ' + seed + '\tEncrypted: ' + encrypt(password, seed) + '\nDecrypted: ' + decrypt(encrypt(password, seed), seed))
-
+    
 }
 
 function decryptButton(){
@@ -107,6 +114,5 @@ function decryptButton(){
         var seed = parseInt(document.getElementById('decryptSeed').value);
     }
     document.getElementById('decryptDecrypted').value = decrypt(password, seed);
-    console.log('Passwort: ' + password + '\tSeed: ' + seed + '\tDecrypted: ' + decrypt(password, seed) + '\nEncrypted: ' + encrypt(decrypt(password, seed), seed))
-
+    
 }

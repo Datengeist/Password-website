@@ -23,6 +23,12 @@ input:focus{
     border-bottom: 10px solid rgb(0, 197, 33);
 }
 
+.active{
+    outline: none;
+    border: none;
+    border-bottom: 10px solid rgb(0, 197, 33);
+}
+
 .tab-button {
     width: 50px;        /* Setzen Sie die Breite des Knopfes */
     height: 50px;       /* Setzen Sie die Höhe des Knopfes */
