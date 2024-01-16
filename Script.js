@@ -86,8 +86,21 @@ function generateSeed(){
 }
 
 function generateButton(){
+    var randomSeed = document.getElementById('seedLabel').value == "Seed: "
     var password = generatePassword((Math.random()*10) + 10);
-    var seed = generateSeed();
+
+    if(!randomSeed){
+        randomSeed = document.getElementById('generateSeed').value == ""
+    }
+
+    if(randomSeed){
+        document.getElementById('seedLabel').value = "Seed: "
+        document.getElementById('generateSeed').readOnly = true;
+        var seed = generateSeed();
+    }else{
+        seed = document.getElementById('generateSeed').value
+    }
+
     document.getElementById('generatePassword').value = password;
     document.getElementById('generateSeed').value = seed;
     document.getElementById('generateEncrypted').value = encrypt(password, seed);
